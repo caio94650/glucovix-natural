@@ -169,10 +169,10 @@
     </div>
   </div>
 
-  <!-- Script: localização por cidade -->
+  <!-- Script: localização por cidade com IPWHO -->
   <script>
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
+    fetch('https://ipwho.is/')
+      .then(res => res.json())
       .then(data => {
         const city = data.city || "tu ciudad";
         document.getElementById("geo-message").innerText = `📍 ¡Más de 127 personas de ${city} pidieron Glucovix esta semana!`;
