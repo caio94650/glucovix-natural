@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glucovix Forte - Solución Natural para la Diabetes</title>
+  <title>Glucovix Forte - Tratamiento Natural para la Diabetes</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f7f9;
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f9fb;
       margin: 0;
       padding: 0;
       color: #333;
@@ -20,30 +23,33 @@
     h1 {
       color: #00796b;
       text-align: center;
-      margin-bottom: 20px;
+      font-size: 26px;
+      margin-bottom: 16px;
     }
     .video-wrapper {
-      width: 100%;
       margin-bottom: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     video {
       width: 100%;
       height: auto;
-      border-radius: 8px;
+      display: block;
     }
     .cta-button {
       display: block;
       width: 100%;
       background-color: #28a745;
-      color: white;
+      color: #fff;
       text-align: center;
-      padding: 15px;
+      padding: 16px;
       font-size: 18px;
       font-weight: bold;
-      border: none;
-      border-radius: 8px;
       text-decoration: none;
-      margin: 20px 0;
+      border-radius: 8px;
+      margin: 24px 0;
+      transition: background-color 0.3s ease;
     }
     .cta-button:hover {
       background-color: #218838;
@@ -51,23 +57,95 @@
     .note {
       text-align: center;
       font-size: 14px;
-      color: #777;
+      color: #666;
+    }
+    .urgency, .geo {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .urgency {
+      color: #d32f2f;
+      font-size: 16px;
+    }
+    .geo {
+      color: #00796b;
+      font-size: 15px;
+    }
+    #timer {
+      font-size: 18px;
+      color: #d32f2f;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 22px;
+      }
+      .cta-button {
+        font-size: 16px;
+        padding: 14px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Glucovix Forte - Tratamiento Natural</h1>
+    <h1>Glucovix Forte - Tratamiento Natural para la Diabetes</h1>
+
     <div class="video-wrapper">
-      <video controls autoplay muted playsinline>
+      <video autoplay muted playsinline controls preload="auto">
         <source src="https://amor-solidario.org/wp-content/uploads/2025/08/VSL-MRD-PRONTA.mp4" type="video/mp4" />
         Tu navegador no admite la reproducción de video.
       </video>
     </div>
+
+    <div class="geo" id="geo-message">Cargando ubicación...</div>
+    <div class="urgency">⚠️ Oferta limitada: solo por tiempo limitado</div>
+    <div id="timer">⏳ Esta oferta termina en: 09:59</div>
+
     <a class="cta-button" href="https://glucomix.doctordominion.com/l" target="_blank">
       👉 Pedir con Descuento (Pago contra Entrega)
     </a>
-    <p class="note">Entrega en todo México · Pago al recibir</p>
+
+    <p class="note">Entrega rápida en todo México · No necesitas tarjeta</p>
   </div>
+
+  <!-- Temporizador Fake -->
+  <script>
+    let minutos = 9;
+    let segundos = 59;
+    const timer = document.getElementById("timer");
+
+    setInterval(() => {
+      if (segundos === 0) {
+        if (minutos === 0) {
+          timer.innerHTML = "⏳ Tiempo agotado: actualiza la página";
+          return;
+        }
+        minutos--;
+        segundos = 59;
+      } else {
+        segundos--;
+      }
+
+      const m = minutos < 10 ? "0" + minutos : minutos;
+      const s = segundos < 10 ? "0" + segundos : segundos;
+      timer.innerHTML = `⏳ Esta oferta termina en: ${m}:${s}`;
+    }, 1000);
+  </script>
+
+  <!-- API de localização -->
+  <script>
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((data) => {
+        const city = data.city || "tu ciudad";
+        document.getElementById("geo-message").textContent =
+          `📍 Personas en ${city} están comprando hoy con 50% de descuento`;
+      });
+  </script>
 </body>
 </html>
