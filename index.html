@@ -66,7 +66,13 @@
       text-decoration: none;
       border-radius: 8px;
       margin: 24px 0;
+      animation: ctaPulse 1.5s infinite;
       transition: background-color 0.3s ease;
+    }
+    @keyframes ctaPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
     }
     .cta-button:hover {
       background-color: #218838;
@@ -96,6 +102,33 @@
       text-align: center;
       font-weight: bold;
       margin-top: 10px;
+    }
+    .proof-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(0, 123, 255, 0.9);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: none;
+    }
+    .faq {
+      margin-top: 30px;
+    }
+    .faq h2 {
+      color: #00796b;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+    }
+    .faq-item strong {
+      color: #333;
     }
     @media screen and (max-width: 480px) {
       h1 { font-size: 22px; }
@@ -127,7 +160,25 @@
     </a>
 
     <p class="note">Entrega rápida en todo México · No necesitas tarjeta</p>
+
+    <div class="faq">
+      <h2>❓ Preguntas Frecuentes</h2>
+      <div class="faq-item">
+        <strong>¿Cuánto tarda en llegar?</strong><br>
+        En promedio, 2 a 4 días hábiles dependiendo de tu ciudad.
+      </div>
+      <div class="faq-item">
+        <strong>¿Puedo pagarlo con tarjeta?</strong><br>
+        No es necesario. El pago es contra entrega: pagas en efectivo al recibir.
+      </div>
+      <div class="faq-item">
+        <strong>¿Tiene efectos secundarios?</strong><br>
+        No. Glucovix Forte es 100% natural y seguro para uso diario.
+      </div>
+    </div>
   </div>
+
+  <div class="proof-bar" id="proofBar">🛒 Juan de Monterrey acaba de hacer un pedido</div>
 
   <!-- Temporizador Fake -->
   <script>
@@ -161,10 +212,14 @@
         const city = data.city || "tu ciudad";
         document.getElementById("geo-message").textContent =
           `📍 Personas en ${city} están comprando hoy con 50% de descuento`;
+
+        // Atualiza o proof bar também
+        const proof = document.getElementById("proofBar");
+        proof.textContent = `🛒 Juan de ${city} acaba de hacer un pedido`;
       });
   </script>
 
-  <!-- Ocultar aviso quando som for ativado -->
+  <!-- Ocultar aviso ao ativar som -->
   <script>
     const video = document.getElementById("promoVideo");
     const soundTip = document.getElementById("soundTip");
@@ -180,6 +235,19 @@
         soundTip.style.display = "none";
       }
     });
+  </script>
+
+  <!-- Proof bar loop -->
+  <script>
+    const proof = document.getElementById("proofBar");
+    setInterval(() => {
+      proof.style.display = "block";
+      proof.style.opacity = "1";
+
+      setTimeout(() => {
+        proof.style.opacity = "0";
+      }, 5000);
+    }, 25000);
   </script>
 </body>
 </html>
