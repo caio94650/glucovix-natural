@@ -163,7 +163,7 @@
 
   <div class="proof-bar" id="proofBar">🛒 Juan de Monterrey acaba de hacer un pedido</div>
 
-  
+  <!-- Temporizador -->
   <script>
     let minutos = 9;
     let segundos = 59;
@@ -187,32 +187,46 @@
     }, 1000);
   </script>
 
-
+  <!-- Prova social dinâmica -->
   <script>
+    const proof = document.getElementById("proofBar");
+
+    const nomes = [
+      "Ana", "José", "Lucía", "Carlos", "Valeria",
+      "Miguel", "Elena", "Luis", "Sofía", "Andrés",
+      "Marco", "Juan", "Paola", "Camila", "Jorge",
+      "Fernanda", "Emiliano", "Itzel", "Santiago",
+      "María", "Alejandro", "Ximena", "Diego"
+    ];
+
+    let cidadeUsuario = "tu ciudad";
+
     fetch("https://ipapi.co/json/")
       .then((res) => res.json())
       .then((data) => {
-        const city = data.city || "tu ciudad";
+        cidadeUsuario = data.city || "tu ciudad";
         document.getElementById("geo-message").textContent =
-          `📍 Personas en ${city} están comprando hoy con 50% de descuento`;
-
-        
-        const proof = document.getElementById("proofBar");
-        proof.textContent = `🛒 Juan de ${city} acaba de hacer un pedido`;
+          `📍 Personas en ${cidadeUsuario} están comprando hoy con 50% de descuento`;
       });
-  </script>
 
-  
-  <script>
-    const proof = document.getElementById("proofBar");
-    setInterval(() => {
+    function mostrarNotificacao() {
+      const nome = nomes[Math.floor(Math.random() * nomes.length)];
+      const agora = new Date();
+      const hora = agora.getHours().toString().padStart(2, '0');
+      const minutos = agora.getMinutes().toString().padStart(2, '0');
+      const horaFormatada = `${hora}:${minutos}`;
+
+      proof.textContent = `🛒 ${nome} de ${cidadeUsuario} acaba de hacer un pedido a las ${horaFormatada}`;
       proof.style.display = "block";
       proof.style.opacity = "1";
 
       setTimeout(() => {
         proof.style.opacity = "0";
       }, 5000);
-    }, 25000);
+    }
+
+    setTimeout(mostrarNotificacao, 4000);
+    setInterval(mostrarNotificacao, 25000);
   </script>
 </body>
 </html>
