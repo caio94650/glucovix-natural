@@ -111,8 +111,8 @@
     <h1>Glucovix Forte - Tratamiento Natural para la Diabetes</h1>
 
     <div class="video-wrapper">
-      <div class="sound-tip">🔊 Activa el sonido</div>
-      <video autoplay muted playsinline controls preload="auto">
+      <div class="sound-tip" id="soundTip">🔊 Activa el sonido</div>
+      <video id="promoVideo" autoplay muted playsinline controls preload="auto">
         <source src="https://amor-solidario.org/wp-content/uploads/2025/08/VSL-MRD-PRONTA.mp4" type="video/mp4" />
         Tu navegador no admite la reproducción de video.
       </video>
@@ -162,6 +162,24 @@
         document.getElementById("geo-message").textContent =
           `📍 Personas en ${city} están comprando hoy con 50% de descuento`;
       });
+  </script>
+
+  <!-- Ocultar aviso quando som for ativado -->
+  <script>
+    const video = document.getElementById("promoVideo");
+    const soundTip = document.getElementById("soundTip");
+
+    video.addEventListener("volumechange", () => {
+      if (!video.muted && video.volume > 0) {
+        soundTip.style.display = "none";
+      }
+    });
+
+    video.addEventListener("play", () => {
+      if (!video.muted && video.volume > 0) {
+        soundTip.style.display = "none";
+      }
+    });
   </script>
 </body>
 </html>
