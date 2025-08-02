@@ -191,7 +191,7 @@
   <script>
     const proof = document.getElementById("proofBar");
 
-    const nomes = [
+    const nomesOriginais = [
       "Ana", "José", "Lucía", "Carlos", "Valeria",
       "Miguel", "Elena", "Luis", "Sofía", "Andrés",
       "Marco", "Juan", "Paola", "Camila", "Jorge",
@@ -199,6 +199,16 @@
       "María", "Alejandro", "Ximena", "Diego"
     ];
 
+    const frases = [
+      "acaba de hacer un pedido",
+      "realizó una compra",
+      "acaba de confirmar su pedido",
+      "acaba de recibir su descuento",
+      "compró Glucovix con 50% OFF",
+      "finalizó su compra con éxito"
+    ];
+
+    let nomesDisponiveis = [...nomesOriginais];
     let cidadeUsuario = "tu ciudad";
 
     fetch("https://ipapi.co/json/")
@@ -209,14 +219,28 @@
           `📍 Personas en ${cidadeUsuario} están comprando hoy con 50% de descuento`;
       });
 
+    function embaralharArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
     function mostrarNotificacao() {
-      const nome = nomes[Math.floor(Math.random() * nomes.length)];
+      if (nomesDisponiveis.length === 0) {
+        nomesDisponiveis = embaralharArray([...nomesOriginais]);
+      }
+
+      const nome = nomesDisponiveis.pop();
+      const frase = frases[Math.floor(Math.random() * frases.length)];
+
       const agora = new Date();
       const hora = agora.getHours().toString().padStart(2, '0');
       const minutos = agora.getMinutes().toString().padStart(2, '0');
       const horaFormatada = `${hora}:${minutos}`;
 
-      proof.textContent = `🛒 ${nome} de ${cidadeUsuario} acaba de hacer un pedido a las ${horaFormatada}`;
+      proof.textContent = `🛒 ${nome} de ${cidadeUsuario} ${frase} a las ${horaFormatada}`;
       proof.style.display = "block";
       proof.style.opacity = "1";
 
