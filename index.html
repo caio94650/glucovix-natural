@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Glucovix Forte - Tratamiento Natural para la Diabetes</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Arial', sans-serif;
       background-color: #f5f9fb;
@@ -27,6 +25,7 @@
       margin-bottom: 16px;
     }
     .video-wrapper {
+      position: relative;
       margin-bottom: 20px;
       border-radius: 8px;
       overflow: hidden;
@@ -36,6 +35,24 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+    .sound-tip {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 20px;
+      z-index: 10;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
     }
     .cta-button {
       display: block;
@@ -81,9 +98,7 @@
       margin-top: 10px;
     }
     @media screen and (max-width: 480px) {
-      h1 {
-        font-size: 22px;
-      }
+      h1 { font-size: 22px; }
       .cta-button {
         font-size: 16px;
         padding: 14px;
@@ -96,6 +111,7 @@
     <h1>Glucovix Forte - Tratamiento Natural para la Diabetes</h1>
 
     <div class="video-wrapper">
+      <div class="sound-tip">🔊 Activa el sonido</div>
       <video autoplay muted playsinline controls preload="auto">
         <source src="https://amor-solidario.org/wp-content/uploads/2025/08/VSL-MRD-PRONTA.mp4" type="video/mp4" />
         Tu navegador no admite la reproducción de video.
