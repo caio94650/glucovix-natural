@@ -31,29 +31,6 @@
       overflow: hidden;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .sound-tip {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: rgba(0,0,0,0.6);
-      color: #fff;
-      padding: 6px 12px;
-      font-size: 14px;
-      border-radius: 20px;
-      z-index: 10;
-      font-weight: bold;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.6; }
-      100% { opacity: 1; }
-    }
     .cta-button {
       display: block;
       width: 100%;
@@ -144,22 +121,18 @@
     <h1>Glucovix Forte - Tratamiento Natural para la Diabetes</h1>
 
     <div class="video-wrapper">
-      <div class="sound-tip" id="soundTip">🔊 Activa el sonido</div>
-      <div class="video-wrapper">
-  <div class="sound-tip" id="soundTip">🔊 Activa el sonido</div>
-  <div style="padding:56.25% 0 0 0;position:relative;">
-    <iframe 
-      src="https://player.vimeo.com/video/1106633781?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-      frameborder="0" 
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-      title="VSL - 720P">
-    </iframe>
-  </div>
-</div>
-<script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe 
+          src="https://player.vimeo.com/video/1106633781?autoplay=1&amp;muted=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+          title="VSL - 720P">
+        </iframe>
+      </div>
     </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 
     <div class="geo" id="geo-message">Cargando ubicación...</div>
     <div class="urgency">⚠️ Oferta limitada: solo por tiempo limitado</div>
@@ -190,7 +163,7 @@
 
   <div class="proof-bar" id="proofBar">🛒 Juan de Monterrey acaba de hacer un pedido</div>
 
-  <!-- Temporizador Fake -->
+  
   <script>
     let minutos = 9;
     let segundos = 59;
@@ -214,7 +187,7 @@
     }, 1000);
   </script>
 
-  <!-- API de localização -->
+
   <script>
     fetch("https://ipapi.co/json/")
       .then((res) => res.json())
@@ -223,31 +196,13 @@
         document.getElementById("geo-message").textContent =
           `📍 Personas en ${city} están comprando hoy con 50% de descuento`;
 
-        // Atualiza o proof bar também
+        
         const proof = document.getElementById("proofBar");
         proof.textContent = `🛒 Juan de ${city} acaba de hacer un pedido`;
       });
   </script>
 
-  <!-- Ocultar aviso ao ativar som -->
-  <script>
-    const video = document.getElementById("promoVideo");
-    const soundTip = document.getElementById("soundTip");
-
-    video.addEventListener("volumechange", () => {
-      if (!video.muted && video.volume > 0) {
-        soundTip.style.display = "none";
-      }
-    });
-
-    video.addEventListener("play", () => {
-      if (!video.muted && video.volume > 0) {
-        soundTip.style.display = "none";
-      }
-    });
-  </script>
-
-  <!-- Proof bar loop -->
+  
   <script>
     const proof = document.getElementById("proofBar");
     setInterval(() => {
