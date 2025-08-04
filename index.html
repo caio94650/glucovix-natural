@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Glucovix Forte - Tratamiento Natural para la Diabetes</title>
+  <script src="https://utmify.io/script.js"></script>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -116,7 +117,7 @@
     }
   </style>
 </head>
-  <!-- Meta Pixel Code -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -132,7 +133,6 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=4080765568828380&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
 <body>
   <div class="container">
     <h1>Glucovix Forte - Tratamiento Natural para la Diabetes</h1>
@@ -155,7 +155,7 @@ src="https://www.facebook.com/tr?id=4080765568828380&ev=PageView&noscript=1"
     <div class="urgency">⚠️ Oferta limitada: solo por tiempo limitado</div>
     <div id="timer">⏳ Esta oferta termina en: 09:59</div>
 
-    <a class="cta-button" href="https://glucomix.doctordominion.com/l" target="_blank">
+    <a class="cta-button" id="redirect-button" href="#" target="_blank" onclick="fbq('track', 'Lead')">
       👉 Pedir con Descuento (Pago contra Entrega)
     </a>
 
@@ -180,94 +180,13 @@ src="https://www.facebook.com/tr?id=4080765568828380&ev=PageView&noscript=1"
 
   <div class="proof-bar" id="proofBar">🛒 Juan de Monterrey acaba de hacer un pedido</div>
 
-  <!-- Temporizador -->
+  <!-- Redirecionamento com clickid -->
   <script>
-    let minutos = 9;
-    let segundos = 59;
-    const timer = document.getElementById("timer");
-
-    setInterval(() => {
-      if (segundos === 0) {
-        if (minutos === 0) {
-          timer.innerHTML = "⏳ Tiempo agotado: actualiza la página";
-          return;
-        }
-        minutos--;
-        segundos = 59;
-      } else {
-        segundos--;
-      }
-
-      const m = minutos < 10 ? "0" + minutos : minutos;
-      const s = segundos < 10 ? "0" + segundos : segundos;
-      timer.innerHTML = `⏳ Esta oferta termina en: ${m}:${s}`;
-    }, 1000);
-  </script>
-
-  <!-- Prova social dinâmica -->
-  <script>
-    const proof = document.getElementById("proofBar");
-
-    const nomesOriginais = [
-      "Ana", "José", "Lucía", "Carlos", "Valeria",
-      "Miguel", "Elena", "Luis", "Sofía", "Andrés",
-      "Marco", "Juan", "Paola", "Camila", "Jorge",
-      "Fernanda", "Emiliano", "Itzel", "Santiago",
-      "María", "Alejandro", "Ximena", "Diego"
-    ];
-
-    const frases = [
-      "acaba de hacer un pedido",
-      "realizó una compra",
-      "acaba de confirmar su pedido",
-      "acaba de recibir su descuento",
-      "compró Glucovix con 50% OFF",
-      "finalizó su compra con éxito"
-    ];
-
-    let nomesDisponiveis = [...nomesOriginais];
-    let cidadeUsuario = "tu ciudad";
-
-    fetch("https://ipapi.co/json/")
-      .then((res) => res.json())
-      .then((data) => {
-        cidadeUsuario = data.city || "tu ciudad";
-        document.getElementById("geo-message").textContent =
-          `📍 Personas en ${cidadeUsuario} están comprando hoy con 50% de descuento`;
-      });
-
-    function embaralharArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    function mostrarNotificacao() {
-      if (nomesDisponiveis.length === 0) {
-        nomesDisponiveis = embaralharArray([...nomesOriginais]);
-      }
-
-      const nome = nomesDisponiveis.pop();
-      const frase = frases[Math.floor(Math.random() * frases.length)];
-
-      const agora = new Date();
-      const hora = agora.getHours().toString().padStart(2, '0');
-      const minutos = agora.getMinutes().toString().padStart(2, '0');
-      const horaFormatada = `${hora}:${minutos}`;
-
-      proof.textContent = `🛒 ${nome} de ${cidadeUsuario} ${frase} a las ${horaFormatada}`;
-      proof.style.display = "block";
-      proof.style.opacity = "1";
-
-      setTimeout(() => {
-        proof.style.opacity = "0";
-      }, 5000);
-    }
-
-    setTimeout(mostrarNotificacao, 5000);
-    setInterval(mostrarNotificacao, 40000);
+    document.addEventListener("DOMContentLoaded", function () {
+      const btn = document.getElementById("redirect-button");
+      const clickid = localStorage.getItem("utmify_clickid") || "noclick";
+      btn.href = "https://glucomix.doctordominion.com/l?sub1=" + clickid;
+    });
   </script>
 </body>
 </html>
