@@ -1,159 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glucovix Forte - Tratamiento Natural para la Diabetes</title>
-  <script src="https://utmify.io/script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glucovix Forte — Paga al recibir</title>
+  <meta name="description" content="Suplemento natural para apoyar el control de la glucosa. Entrega rápida en todo el país y pago contra entrega." />
   <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f9fb;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1 {
-      color: #00796b;
-      text-align: center;
-      font-size: 26px;
-      margin-bottom: 16px;
-    }
-    .video-wrapper {
-      position: relative;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .cta-button {
-      display: block;
-      width: 100%;
-      background-color: #28a745;
-      color: #fff;
-      text-align: center;
-      padding: 16px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      margin: 24px 0;
-      animation: ctaPulse 1.5s infinite;
-      transition: background-color 0.3s ease;
-    }
-    @keyframes ctaPulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-    .cta-button:hover {
-      background-color: #218838;
-    }
-    .note {
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-    }
-    .urgency, .geo {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    .urgency {
-      color: #d32f2f;
-      font-size: 16px;
-    }
-    .geo {
-      color: #00796b;
-      font-size: 15px;
-    }
-    #timer {
-      font-size: 18px;
-      color: #d32f2f;
-      text-align: center;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .proof-bar {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: rgba(0, 123, 255, 0.9);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      z-index: 1000;
-      display: none;
-    }
-    .faq {
-      margin-top: 30px;
-    }
-    .faq h2 {
-      color: #00796b;
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .faq-item {
-      margin-bottom: 15px;
-    }
-    .faq-item strong {
-      color: #333;
-    }
-    @media screen and (max-width: 480px) {
-      h1 { font-size: 22px; }
-      .cta-button {
-        font-size: 16px;
-        padding: 14px;
-      }
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7fafb;color:#1f2937}
+    .wrap{max-width:760px;margin:0 auto;padding:18px}
+    header{background:#0ea5e9;color:#fff;padding:12px 18px;border-radius:14px;display:flex;align-items:center;gap:10px}
+    header .tag{background:#0369a1;padding:6px 10px;border-radius:999px;font-size:12px}
+    h1{font-size:24px;margin:14px 0 8px}
+    .sub{color:#0f766e;font-weight:600;margin-bottom:12px}
+    .vsl{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.08);margin:10px 0}
+    .vsl>div{position:relative;padding-top:56.25%}
+    .vsl iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 6px}
+    .badge{background:#e2f3ff;color:#0c4a6e;border:1px solid #bae6fd;padding:6px 10px;border-radius:999px;font-size:12px}
+    .cta{display:block;text-align:center;background:#22c55e;color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:16px;margin:16px 0;font-size:18px;transition:.2s}
+    .cta:hover{filter:brightness(.95)}
+    .row{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:680px){.row{grid-template-columns:1fr 1fr}}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px}
+    .geo,.timer,.note{text-align:center;font-weight:600}
+    .geo{color:#0369a1;margin:10px 0}
+    .timer{color:#ef4444}
+    .list{margin:0;padding-left:16px}
+    .list li{margin:6px 0}
+    .faq h3,.testi h3{margin:0 0 8px;color:#0f766e}
+    .disclaimer{font-size:12px;color:#6b7280;margin-top:12px;line-height:1.4}
+    .foot{margin:18px 0;text-align:center;font-size:12px;color:#6b7280}
+    .proof{position:fixed;left:16px;bottom:16px;background:rgba(15,23,42,.92);color:#fff;padding:10px 12px;border-radius:12px;font-size:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);display:none;z-index:999}
   </style>
+  <!-- Pixel do Facebook (opcional): cole seu pixel aqui se quiser -->
 </head>
 <body>
-  <div class="container">
-    <h1>Glucovix Forte - Tratamiento Natural para la Diabetes</h1>
-    <div class="video-wrapper">
-      <div style="padding:56.25% 0 0 0;position:relative;">
+  <div class="wrap">
+    <header>
+      <span class="tag">Paga al recibir</span>
+      <div>
+        <div style="font-weight:800;">Glucovix Forte</div>
+        <small>Suplemento natural para apoyar tu bienestar diario</small>
+      </div>
+    </header>
+
+    <h1>Apoya el control de tu glucosa de forma natural</h1>
+    <div class="sub" id="geo">📍 Envíos rápidos en todo <span id="city">tu ciudad</span></div>
+
+    <div class="vsl">
+      <div>
         <iframe 
-          src="https://player.vimeo.com/video/1106633781?autoplay=1&amp;muted=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-          frameborder="0" 
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-          title="VSL - 720P" loading="lazy">
+          src="https://player.vimeo.com/video/1106633781?muted=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0" 
+          loading="lazy" allow="fullscreen; picture-in-picture; encrypted-media">
         </iframe>
       </div>
     </div>
-    <div class="geo" id="geo-message">Cargando ubicación...</div>
-    <div class="urgency">⚠️ Oferta limitada: solo por tiempo limitado</div>
-    <div id="timer">⏳ Esta oferta termina en: 09:59</div>
-    <a class="cta-button" id="redirect-button" href="#" target="_blank" onclick="fbq('track', 'Lead')">
-      👉 Pedir con Descuento (Pago contra Entrega)
-    </a>
-    <p class="note">Entrega rápida en todo México · No necesitas tarjeta</p>
-    <div class="faq">
-      <h2>❓ Preguntas Frecuentes</h2>
-      <div class="faq-item"><strong>¿Cuánto tarda en llegar?</strong><br>En promedio, 2 a 4 días hábiles dependiendo de tu ciudad.</div>
-      <div class="faq-item"><strong>¿Puedo pagarlo con tarjeta?</strong><br>No es necesario. El pago es contra entrega: pagas en efectivo al recibir.</div>
-      <div class="faq-item"><strong>¿Tiene efectos secundarios?</strong><br>No. Glucovix Forte es 100% natural y seguro para uso diario.</div>
+
+    <div class="badges">
+      <span class="badge">Pago contra entrega</span>
+      <span class="badge">Envío 2–4 días</span>
+      <span class="badge">Fórmula natural</span>
+      <span class="badge">Clientes verificados</span>
+    </div>
+
+    <div class="timer">⏳ Oferta termina en: <span id="countdown">10:00</span></div>
+
+    <a id="cta" class="cta" href="#" target="_blank">👉 Pedir con Descuento (Paga al recibir)</a>
+
+    <div class="row">
+      <section class="card">
+        <h3 style="margin:0 0 6px;">Beneficios que las personas reportan</h3>
+        <ul class="list">
+          <li>Apoyo para mantener niveles de glucosa dentro de rangos saludables.</li>
+          <li>Sensación de energía y bienestar durante el día.</li>
+          <li>Rutina simple: complemento para hábitos saludables.</li>
+          <li>Sin necesidad de tarjeta: pagas al recibir en casa.</li>
+        </ul>
+        <p class="disclaimer">*Este producto es un suplemento alimenticio. No sustituye tratamientos médicos ni medicamentos. Resultados pueden variar entre personas.</p>
+      </section>
+
+      <section class="card testi">
+        <h3>Opiniones de clientes</h3>
+        <div style="font-size:14px;line-height:1.5">
+          ⭐⭐⭐⭐⭐ “Me ayudó a mantenerme estable durante el día.” — <strong>Ana M.</strong><br>
+          ⭐⭐⭐⭐☆ “Entrega rápida y pude pagar al recibir.” — <strong>Carlos R.</strong><br>
+          ⭐⭐⭐⭐⭐ “Lo uso como apoyo junto con mi dieta.” — <strong>María L.</strong>
+        </div>
+      </section>
+    </div>
+
+    <section class="card faq" style="margin-top:14px">
+      <h3>Preguntas frecuentes</h3>
+      <p><strong>¿Cómo funciona el pago contra entrega?</strong><br>Haces tu pedido y pagas en efectivo cuando el paquete llega a tu domicilio.</p>
+      <p><strong>¿Cuánto tarda el envío?</strong><br>Normalmente entre <strong>2 y 4 días hábiles</strong>, según tu ciudad.</p>
+      <p><strong>¿Glucovix Forte es un medicamento?</strong><br>No. Es un <strong>suplemento</strong> que apoya tu bienestar. Consulta a tu médico si tienes dudas.</p>
+    </section>
+
+    <a id="cta2" class="cta" href="#" target="_blank">Quiero mi descuento — Paga al recibir</a>
+
+    <p class="note" style="text-align:center;">🚚 Seguimiento por WhatsApp tras confirmar el pedido.</p>
+    <p class="disclaimer">La información de esta página es de carácter informativo y no reemplaza el consejo médico profesional. Si tienes una condición de salud, consulta a tu médico.</p>
+
+    <div class="foot">
+      © 2025 Glucovix Forte · Todos los derechos reservados · <a href="#" style="color:#0ea5e9;text-decoration:none">Política de privacidad</a>
     </div>
   </div>
-  <div class="proof-bar" id="proofBar">🛒 Juan de Monterrey acaba de hacer un pedido</div>
+
+  <div class="proof" id="proof">🛒 Pedido confirmado en <span id="pCity">Ciudad de México</span> hace 3 min</div>
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const btn = document.getElementById("redirect-button");
-      const clickid = localStorage.getItem("utmify_clickid") || "noclick";
-      btn.href = "https://glucomix.doctordominion.com/l?sub1=" + clickid;
-    });
+    // Geo cidade (ipapi)
+    fetch("https://ipapi.co/json/")
+      .then(r=>r.json())
+      .then(d=>{
+        const city = d.city || "tu ciudad";
+        document.getElementById("city").textContent = city;
+        document.getElementById("pCity").textContent = city;
+        document.getElementById("geo").innerHTML = "📍 Envíos rápidos en todo <strong>"+city+"</strong>";
+        // Mostrar barra de prova social depois de 6s
+        setTimeout(()=>{ document.getElementById("proof").style.display="block"; }, 6000);
+      })
+      .catch(()=>{ /* silencioso */ });
+
+    // Contador 10 min
+    let t = 10*60; // 10 minutos
+    const el = document.getElementById("countdown");
+    function fmt(s){const m=String(Math.floor(s/60)).padStart(2,"0");const ss=String(s%60).padStart(2,"0");return m+":"+ss;}
+    function tick(){
+      if(t>0){ el.textContent = fmt(t--); }
+      else{
+        document.querySelector(".timer").textContent = "⚠️ Oferta finalizada. Últimas unidades disponibles.";
+        clearInterval(iv);
+      }
+    }
+    const iv = setInterval(tick,1000); tick();
+
+    // UTMify: acrescenta sub1 com clickid e envia para sua offer (COD)
+    function setOfferLinks(){
+      const urlParams = new URLSearchParams(window.location.search);
+      let clickid = urlParams.get("clickid");
+      if(clickid){ localStorage.setItem("utmify_clickid", clickid); }
+      else { clickid = localStorage.getItem("utmify_clickid") || "noclick"; }
+
+      const offer = "https://glucomix.doctordominion.com/l?sub1="+encodeURIComponent(clickid);
+      document.getElementById("cta").href = offer;
+      document.getElementById("cta2").href = offer;
+    }
+    document.addEventListener("DOMContentLoaded", setOfferLinks);
   </script>
 </body>
 </html>
